@@ -1,0 +1,17 @@
+create database pratica5;
+use pratica5;
+create table dados_multimidia(
+Codigo int primary key not null,
+nome varchar(30),
+Tipo varchar(20),
+dados longblob
+);
+
+insert into dados_multimidia (Codigo,nome,tipo,dados)values (1,"jose","imagem",load_file("C:\Users\Public\Pictures\Sample Pictures\Desert.jpg"));
+insert into dados_multimidia (Codigo,nome,tipo,dados)values (2,"maria","imagem",load_file("C:\Users\Public\Pictures\Sample Pictures\gio.jpg"));
+
+select * from dados_multimidia;
+
+select dados into outfile 'C:\\ProgramData\\MySQL\\MySQL Server 5.7\\Uploads\\gio.jpeg' 
+from dados_multimidia 
+where Codigo = 2;
